@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui" charset="UTF-8">
+    <title>保单审核</title>
+ <!----><style>
+    *{
+        margin: 0;
+        padding:0;
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+        -webkit-text-size-adjust:none;
+    }
+   
+    body{
+        background-color: #f5f5f5;
+        
+    }
+    .header {
+		width: 100%;
+		height: 44px;
+		line-height: 44px;
+		text-align: center;
+		
+	}
+	.header h4{
+		color: #666;	
+	}
+    .tab{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        height: 44px;
+        line-height: 44px;
+        /*border-bottom: 1px solid #ff3c3c;*/
+        background-color: #eee;
+    }
+    .tab .item{
+        display: block;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+        color: #333;
+        text-decoration: none;
+        margin-top: 42px;
+    }
+    .tab .cur{
+        height: 42px;
+        border-bottom: 2px solid #ff3c3c;
+        color: #ff3c3c;
+    }
+    .content{
+        background-color: #fff;
+        margin-top: 42px;
+    }
+    .content .item{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align:center;
+        -webkit-box-align:center;
+        box-align:center;
+        -webkit-align-items:center;
+        align-items:center;
+        padding:3.125%;
+        border-bottom: 1px solid #ddd;
+        color: #333;
+        text-decoration: none;
+        height: 60px;
+    }
+    .content .item img{
+        display: block;
+        width: 40px;
+        height: 40px;
+        border:1px solid #ddd;
+    }
+    .content .item h3{
+        display: block;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        max-height: 40px;
+        overflow: hidden;
+        line-height: 20px;
+        margin: 0 10px;
+        font-size: 1.2rem;
+    }
+    .content .item .date{
+        display: block;
+        height: 20px;
+        line-height: 20px;
+        color: #999;
+    }
+    .opacity{
+        -webkit-animation: opacity 0.3s linear;
+        animation: opacity 0.3s linear;
+    }
+    @-webkit-keyframes opacity {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+    @keyframes opacity {
+        0% {
+            opacity:0;
+        }
+        100% {
+            opacity:1;
+        }
+    }
+    </style>   
+ 
+    
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/check.css" />
+    <link rel="stylesheet" href="css/dropload.css">
+    
+</head>
+<body>
+<div class="navbar">
+    <div class="leftImg"><i><img  onclick="history.go(-1)" src="img/go-back.png"></i></div>
+    <div class="centerTxt">保单审核</div>
+</div> 
+	
+<div id="search">		
+	<div id="header">
+		<img src="img/search.png" alt="放大镜" />
+		<input class="search" type="search" placeholder="区域、状态等搜索条件"/>
+	</div>		
+</div>
+	
+	
+	
+	
+<div class="tab">
+    <a href="javascript:;" class="item review cur">待审核</a>
+    <a href="javascript:;" class="item unReview">已审核</a>
+</div>
+<div class="content">
+    <div class="lists"></div>
+    <div class="lists"></div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/Config.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/dropload.min.js"></script>
+<script>
+
+$(function(){
+	var items=[];
+	var href = location.href;
+	var startIndex = href.indexOf('html?')+('html?').length;
+	var endIndex = href.length;
+	var subString = href.substring(startIndex,endIndex);
+	var splitArr = subString.split('&');
+	for (var i=0;i<splitArr.length;i++) {
+		var item = splitArr[i];
+		var subArr = item.split('=');
+		items[subArr[0]] = subArr[1];
+	}
+	
+	$('.review').text('待审核('+decodeURIComponent(items['unReviewCount']+')'));
+	$('.unReview').text('已审核('+decodeURIComponent(items['reviewCount']+')'));
+    
+    //加载的状态
+    var loadStatus = {
+    		itemIndex:0,
+    		tab0LoadEnd:false,
+    		tab1LoadEnd:false,
+    		keyword:null
+    }; 
+    //加载列表数据
+   loadListData(loadStatus)
+   
+    $('.tab .item').on('click',function(){
+        var $this = $(this);
+        loadStatus.itemIndex = $this.index();
+        $this.addClass('cur').siblings('.item').removeClass('cur');
+        $('.lists').eq(loadStatus.itemIndex).show().siblings('.lists').hide();
+        
+        if(loadStatus.itemIndex==0){
+        		loadStatus.tab0LoadEnd=false;	
+        }else {
+        		loadStatus.tab1LoadEnd=false;
+        }
+        
+        loadStatus.keyword=null;
+        var flag = loadListData(loadStatus);
+  		
+    });
+ 
+    $(document).keydown(function (event) {
+	    	//搜索关键字
+	    var keyword = $.trim($('.search').val());
+	    if (keyword.length == 0) return;
+	    
+	    if (event.keyCode == 13) {
+	    		if(loadStatus.itemIndex=='0'){
+	    			loadStatus.tab0LoadEnd=false;
+	    		}else{
+	    			loadStatus.tab1LoadEnd=false;
+	    		}
+	
+	    		loadStatus.keyword=keyword;
+	 		var flag = loadListData(loadStatus);
+	 		
+	   		if(!flag) alert('搜索没有结果！');
+	    }
+	});  
+});
+
+
+/**
+ * return 表示是否有列表数据
+ * loadStatus 加载数据状态的对象
+ * 
+ * //加载的状态
+    var loadStatus = {
+    		itemIndex:0,
+    		tab0LoadEnd:false,//表示待审核数据没有加载完
+    		tab1LoadEnd:false,//表示已审核数据没有加载完
+    		keyword:null      //表示是否按关键字搜索
+    }; 
+ * 
+ */
+function loadListData(loadStatus) {
+	var flag=false;//flag表示返回是否有数据
+	$.ajax({
+            type: 'GET',
+            url: serverPath + '/weChatService/policyServlet',
+            dataType: 'json',
+            data:{
+				flag:"getPolicyList",
+				param:loadStatus.keyword,
+				status:loadStatus.itemIndex
+			}, 
+            success: function(data){
+            		flag=data.result.length;
+                var result = '';
+                for(var i = 0; i < data.result.length; i++){
+                		var status = '不通过';
+                		status = parseInt(data.result[i].status)==1?'通过':'待审核';          
+                		var phone_imei = $.trim(data.result[i].phone_imei);
+                		var phone_no = $.trim(data.result[i].phone_no);
+                		var user_name = $.trim(data.result[i].user_name);
+                		var pin_no = $.trim(data.result[i].pin_no);
+                		var pictureLink = $.trim(data.result[i].pictureLink);
+                		
+                    result +=   
+                    '<div class="cell" onclick="orderInfo('+encodeURIComponent(phone_imei)+','
+                    										   +encodeURIComponent(phone_no)+','
+                    										   +'\''+encodeURIComponent(status)+'\''+','
+                    										   +'\''+encodeURIComponent(user_name)+'\''+','
+                    										   +encodeURIComponent(pin_no)+','
+                    										   +'\''+encodeURIComponent(pictureLink)+'\''
+                    										   +')">'
+					//			<!--左边内容-->
+						+'<div class="left">'
+							+'<img src="' +data.result[i].pictureLink + '"/>'
+						+'</div>'
+					//			<!--中间内容-->
+						+'<div class="center">'
+							+'<div class="name-tel">'
+								+'<span class="name">'+data.result[i].user_name+'</span>'
+							+'</div>'
+							
+							+'<div class="code">'
+								+'<span class="checkStatus">'+status+'</span>'
+							+'</div>'
+							
+						+'</div>'
+						//<!--右边-->
+						+'<div class="right">'
+							+'<p class="time">' + data.result[i].creation_date + '</p>'
+						+'</div>'
+						
+					+'</div>';
+                      } 
+                   
+                   $('.lists').eq(parseInt(loadStatus.itemIndex)).html("");
+                   if(loadStatus.itemIndex=='0' && !loadStatus.tab0LoadEnd){
+                   		
+                   		//alert(loadStatus.tab0LoadEnd)
+               			$('.lists').eq(parseInt(loadStatus.itemIndex)).append(result);
+                   		loadStatus.tab0LoadEnd=true;
+                   }
+                   
+                   if(loadStatus.itemIndex=='1' && !loadStatus.tab1LoadEnd){
+                   		
+	               		$('.lists').eq(parseInt(loadStatus.itemIndex)).append(result);
+	               		loadStatus.tab1LoadEnd=true;
+	               }          
+            }
+        });
+        
+        return flag;
+}
+
+
+/**
+ * 用户保单信息
+ * imei 手机唯一标识
+ * num 手机号
+ * status 保单审核状态
+ * name 用户名
+ * ID 身份证号
+ * pictureLink：图片地址 
+ * */
+function orderInfo(imei,num,status,name,ID,pictureLink)
+{	
+	var flag = decodeURIComponent(status)=='通过'?true:false;
+	
+	if(flag){
+		//跳转到保单详情界面
+		location.href="orderInfo.html?imei="+imei+"&num="+num+"&status="+status+"&name="+name+"&ID="+ID+"&pictureLink="+pictureLink;
+	}else {
+		//跳转到保单查询界面
+		location.href="index.html?imei="+imei+"&num="+num+"&status="+status+"&name="+name+"&ID="+ID+"&pictureLink="+pictureLink;
+	}
+}
+
+
+
+
+</script>
+
+
+
+</html>

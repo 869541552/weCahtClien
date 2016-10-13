@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>保单处理</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		body{
+			background-color: #F2F2F2;
+		}
+		
+		.tbody{
+			
+			width:100%;
+		}
+	
+		.header {
+			width: 100%;
+			height: 44px;
+			line-height: 44px;
+			text-align: center;
+		}
+		.header h4{
+			color: #666;	
+		}
+		.row{
+			display: block;
+			
+			height: 40px;
+			width: 100%;
+			margin-top: 10px;
+		}
+		
+		.row ul li{
+			padding: 0;
+			margin: 0;
+			display: inline-block;
+			height: 40px;
+			line-height: 40px;
+			float: left;
+			margin-right: 5px;
+			list-style-type:none;
+		}
+		
+		.row ul li.col-one{
+			width: 30%;
+			text-align: right;
+			
+		}
+		
+		.row ul li.col-two{
+			width: 60%;
+			text-align: left;
+			
+		}
+		.order-img{
+			height: 100px;
+			
+		}
+		.order-img li{
+			
+			height: 100px;
+			display: inline-block;
+			
+		}
+		
+		.order-img li.col-one{
+			line-height: 100px;
+			text-align: right;
+		}
+		
+		#verify {
+			width: 100%;
+			height: 30px;
+			text-align: center;
+			margin-top: 30px;
+		}
+		#verify a{
+			display: inline-block;
+			width: 80px;
+			height: 30px;
+			line-height: 30px;
+			color: black;
+			border: 1px solid #333;
+			background-color: white;
+			border-radius: 5px;
+			font-size: 13px;
+			margin: 0 10px 0 10px;
+		}
+		
+		#footer{
+			width: 70%;
+			height: 80px;
+			padding: 20px;
+		}
+		
+		#footer label{
+			font-size: 13px;
+			height: 30px;
+			line-height: 30px;
+		}
+		
+		#footer textarea{
+			height: 50px;
+			width: 100%;
+			color: red;
+		}
+	</style>
+	 <link href="css/navbar.css" rel="stylesheet">
+</head>
+<body>
+  	<div class="navbar">
+            <div class="leftImg"><i><img  onclick="history.go(-1)" src="img/go-back.png"></i></div>
+            <div class="centerTxt">保单处理</div>
+</div> 
+
+<!--<div class="header">
+	<h4>保单查询</h4>
+</div>	-->
+<div class="tbody" style="width: 100%;">
+	<div class="row">
+		<ul>
+			<li class="col-one">手机IMEI:</li>
+			<li class="col-two imei">11111111111</li>
+		</ul>
+	</div>
+	<div class="row">
+		<ul>
+			<li class="col-one">保修序列号:</li>
+			<li class="col-two num">1111111111111111</li>
+		</ul>
+	</div>
+	<div class="row">
+		<ul>
+			<li class="col-one">保单状态:</li>
+			<li class="col-two order-status">11111111111</li>
+		</ul>
+	</div>
+	<div class="row">
+		<ul>
+			<li class="col-one">姓名:</li>
+			<li class="col-two name">1111111111111111</li>
+		</ul>
+	</div>
+	<div class="row">
+		<ul>
+			<li class="col-one">身份证号:</li>
+			<li class="col-two ID">11111111111</li>
+		</ul>
+	</div>
+	
+	<div class="row order-img">
+		<ul>
+			<li class="col-one">保单图:</li>
+			<li class="col-two"><img class="order-img" src="img/b2.png" style="width: 100px;height: 100px;"/></li>
+		</ul>
+	</div>
+	
+	<div id="verify">
+		<a class="pass">通过审核</a>
+		<a class="nopass">审核不通过</a>
+	</div>
+	
+	<div id="footer">
+		<label>审核不通过原因:</label>
+		<textarea class="nopass-info"></textarea>
+	</div>
+</div>
+
+	
+</body>
+<!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+<script type="text/javascript" src="js/Config.js"></script>
+<script type="text/javascript">
+	;$(function (){		
+		var items=[];
+//		var href = "index.html?imei=100&num=123456&status=审核通过&name=jack&ID=10010";
+			//,num,stauts,name,ID
+			
+//			alert(location.href);
+		var href = location.href;
+		var startIndex = href.indexOf('html?')+('html?').length;
+		var endIndex = href.length;
+		var subString = href.substring(startIndex,endIndex);
+		var splitArr = subString.split('&');
+		for (var i=0;i<splitArr.length;i++) {
+			var item = splitArr[i];
+			var subArr = item.split('=');
+			items[subArr[0]] = subArr[1];
+		}
+		//alert(items['status'])
+		$('.imei').text(decodeURIComponent(items['imei']));
+		$('.num').text(decodeURIComponent(items['num']));
+		$('.order-status').text(decodeURIComponent(items['status']));
+		$('.name').text(decodeURIComponent(items['name']));
+		$('.ID').text(decodeURIComponent(items['ID']));
+		
+		$('.order-img').attr('src',decodeURIComponent(items['pictureLink']));
+//		alert(decodeURIComponent(items['pictureLink']))
+		var phone_imei = $('.imei').val();
+		$('.pass').click(function(){
+			$.ajax({
+				type:"get",
+				url:serverPath + "/weChatService/policyServlet",
+				async:true,
+				data:{
+					phone_imei:phone_imei,
+					remark:'审核通过',
+					code:1,
+					flag:'reviewPolicy'
+				},
+				success:function(data){
+					alert('审核通过成功！');
+				}
+			});
+		});
+		
+		
+		$('.nopass').click(function(){
+			var nopassInfo = $('.nopass-info').val();
+			if (nopassInfo.length == 0){
+				alert('请填写不通过原因！');
+			}else {
+				$.ajax({
+				type:"get",
+				url:serverPath + "/weChatService/policyServlet",
+				async:true,
+				data:{
+					phone_imei:phone_imei,
+					remark:'审核不通过',
+					code:0,
+					flag:'reviewPolicy'
+				},
+				success:function(data){
+					alert('审核不通过成功！');
+				}
+				});
+			}
+			});
+	});
+	
+</script>
+
+</html>

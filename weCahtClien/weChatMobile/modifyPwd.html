@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link href="css/modifyPwd.css" rel="stylesheet">
+    <link href="css/sm.css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link href="css/sm-extend.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+  <link href="css/navbar.css" rel="stylesheet">
+  </head>
+  <body>
+  	  	<div class="navbar">
+            <div class="leftImg"><i><img  onclick="history.go(-1)" src="img/go-back.png"></i></div>
+            <div class="centerTxt">修改密码</div>
+</div> 
+    <div class="list-block" align="center" style="width: 82%; margin-left:10%;height:3%;margin-top: 28%">
+      <div class="item-input radius" style="background-color: white;">
+        <input type="password" placeholder="旧密码" name="oldPassword" class="radius" style="height: 1.6rem;"></div>
+    </div>
+    <div class="list-block" align="center" style="width: 82%; margin-left:10%;height:3%">
+      <div class="item-input radius" style="background-color: white;">
+        <input type="password" class="" placeholder="密码" name="newPassword" class="radius" style="height: 1.6rem;"></div>
+    </div>
+    <div class="list-block" align="center" style="width: 82%; margin-left:10%;height:3%">
+      <div class="item-input radius" style="background-color: white;">
+        <input type="password" class="" placeholder="验证密码" name="verPassword" class="radius" style="height: 1.6rem;"></div>
+    </div>
+    <div class="content-block" style="margin-left: 6%;height: 10%">
+      <div class="row">
+        <div class="col-95">
+          <button class="button button-big button-fill button-danger" id="submit" onclick="modifyPassword()">提交</button></div>
+      </div>
+    </div>
+  </body>
+  <script type='text/javascript' src='js/Config.js'></script>
+  <script type="text/javascript">function modifyPassword() {
+      var oldPassword = $.trim($("input[name='oldPassword']").val());
+      var newPassword = $.trim($("input[name='newPassword']").val());
+      var verPassword = $.trim($("input[name='verPassword']").val());
+      var userName = getCookie("username");
+      //		$.alert(userName);
+      //		alert('原密码：'+oldPassword + ";" + '新密码：' + newPassword+ ";" + '校验密码：' + verPassword);
+      if (newPassword != verPassword) {
+        $.alert("两个密码不一致");
+        return false;
+      }
+      if (oldPassword && newPassword && verPassword && userName) {
+        modifyPwd(userName, newPassword, oldPassword);
+        return true;
+      } else {
+        $.alert("密码不能为空！");
+        return false;
+      }
+    }
+
+    function modifyPwd(username, password, oldPws) {
+      $.ajax({
+        url: serverPath + "/weChatService/LoginServlet",
+        type: "post",
+        data: {
+          code: "updatePass",
+          username: username,
+          password: password,
+          oldPass: oldPws
+        },
+        dataType: "json",
+        beforeSend: function() { //交互时状态
+        },
+        success: function(data) {
+          if (data.flag) {
+            //					$.alert(data.msg);
+            setCookie("password", password);
+            window.location = "userCenter.html";
+          } else {
+            $.alert(data.msg);
+          }
+        }
+      });
+    }</script>
+
+</html>

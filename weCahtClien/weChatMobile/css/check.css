@@ -1,0 +1,184 @@
+*{
+	
+	margin: 0px;
+	padding: 0px;
+}
+
+body
+{
+	
+	/*text-align: center;*/
+	background-color: #e5e5e5;
+}
+/*顶部菜单*/
+#menu-button{
+	background-color: white;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	
+	
+}
+#menu-button .seleced-btn
+{
+	width: 45%;
+	border: none;
+	height: 35px;
+	/*background-color: lightcoral;*/
+}
+
+/*搜索*/
+#search
+{
+	background-color: #dddddd;
+	line-height: 44px;
+	height: 44px;
+	width: 100%;
+	/*position: absolute;*/
+	/*top: 0px;*/
+	text-align: center;
+	
+}#header
+{
+	display: inline-block;
+	/*background-color: red;*/
+	height: 100%;
+	width: 90%;
+	position: relative;
+}
+#search input
+{
+	height: 30px;
+	width: 100%;
+	box-sizing: border-box;
+	padding-left: 40px;
+	/*padding-right: 10px;
+	background-color: aquamarine;*/
+	border: 1px solid #dddddd;
+	/*border-radius: 4px;;*/
+	
+}
+
+#search img
+{
+	height: 15px;
+	width: 15px;
+	position: absolute;
+	left: 10px;
+	top: 14px;
+	
+}
+/*单元格*/
+.cell
+{
+	width: 100%;
+	height: 60px;
+	background-color: white;
+	border-bottom: 1px solid #ddd;
+	
+}
+.cell .left
+{
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 10px;
+	
+}
+.cell .left img
+{
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	
+}
+
+.cell .center
+{
+	display: inline-block;
+	/*border: 1px solid red;*/
+	/*margin-top: 5px;*/
+	margin-left: 5px;
+	
+}
+.cell .center .name-tel
+{
+	margin-bottom: 5px;
+}
+
+.cell .right
+{
+	display: inline-block;
+	float: right;
+	text-align: center;
+	margin-top: 20px;
+	margin-right: 15px;
+	
+}
+.cell .right img
+{
+	
+	width: 20px;
+	height: 20px;
+	
+}
+.footer
+{
+	/*margin-top: 5px;*/
+	/*margin-bottom: 3px;*/
+	font-size: 14px;
+	color: #333333;
+	
+}
+.footer .adress
+{
+	margin-left: 10px ;
+	color: #999999;
+	
+}
+
+.time
+{
+	font-size: 13px;
+	color: #999;
+}
+/*所有字体*/
+.name{
+	font-size: 14px;
+}
+.code-number{
+	font-size: 14px;
+}
+.code
+{
+	margin-bottom: 7px;
+}
+.checkStatus{
+	margin-left: 10px;
+	/*margin-bottom: 20px;*/
+	font-size: 14px;
+	color: lightskyblue;
+}
+.tel
+{
+	font-size: 14px;
+	color: #333333;
+}
+.code .code-number
+{
+	color: #333333;
+}
+status{
+	font-size: 14px;
+}
+.status{
+	color: red;
+	font-size: 10px;
+	
+}
+/*分割线*/
+.line{
+	width: 100%;
+	height: 0.5px;
+	background-color: darkgray;
+	
+}

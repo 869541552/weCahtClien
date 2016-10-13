@@ -1,0 +1,53 @@
+{
+  "orderVerify.html": {
+    "resources": [
+      "img/search.png",
+      "js/dropload.min.js",
+      "js/zepto.min.js",
+      "js/sm.js",
+      "js/Config.js",
+      "img/go-back.png",
+      "js/zepto.js",
+      "css/dropload.css",
+      "js/sm-extend.js",
+      "css/check.css",
+      "css/navbar.css",
+      "js/util-cookie.js"
+    ],
+    "refer": []
+  },
+  "uploadOrder.html": {
+    "resources": [
+      "css/sm-extend.css",
+      "css/layer.css",
+      "css/main.css",
+      "js/photoswipe.min.js",
+      "js/sm.js",
+      "js/zh_CN.js",
+      "img/zlsc.jpg",
+      "img/go-back.png",
+      "js/js.KinerCode.js",
+      "css/default-skin.css",
+      "js/photoswipe-ui-default.min.js",
+      "img/03.png",
+      "js/zepto.js",
+      "css/photoswipe.css",
+      "css/pure-min.css",
+      "img/05.png",
+      "js/jweixin-1.0.0.js",
+      "js/layer.js",
+      "css/sm.css",
+      "js/sm-extend.js",
+      "js/json2.js",
+      "css/navbar.css",
+      "js/plupload.full.min.js",
+      "js/PCASClass.js"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "css/index.css",
+      "js/jquery.min.js"
+    ]
+  }
+}

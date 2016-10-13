@@ -1,0 +1,110 @@
+<!--http://www.php.net.cn/app/5/examples/mobile/-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="telephone=no" name="format-detection">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link href="css/sm.css" rel="stylesheet">
+		<link href="css/sm-extend.css" rel="stylesheet">
+		<link href="css/userCenter.css" rel="stylesheet">
+		<title>个人中心</title>
+	</head>
+	<body>
+		<div class="page-group" >
+		<!--<div class="page page-current" id="page-layout" style="background:url(img/bg4.png);">-->
+			<div class="content native-scroll">
+				<div class="list-block" align="center" style="margin-top: 13%">
+					<img src="img/head.png" width="80px;" height="80px;" style="border-radius:40px ;">
+				</div>
+				<div style="margin-top: -35px;text-align:center">
+				 <p>gyanping</p>
+				</div>
+				
+<div class="cellDiv" onclick="javascript:location='bdlist.html'">
+            <div class="leftImg"><i><img src="img/search.png" width="22px" height="22px""></i></div>
+            <div class="centerTxt">保单查询</div>
+            <div class="rightImg"><i><img src="img/arrowRigth.png" width="10px" height="18px"></i></div>
+</div>
+<div class="cellDiv" onclick="verify()">
+            <div class="leftImg"><i><img src="img/verify.png" width="22px" height="22px""></i></div>
+            <div class="centerTxt">保单审核</div>
+            <div class="rightImg"><i><img src="img/arrowRigth.png" width="10px" height="18px"></i></div>
+</div>
+<div class="cellDiv" onclick="javascript:location='modifyPwd.html'">
+            <div class="leftImg"><i><img src="img/setting.png" width="22px" height="22px""></i></div>
+            <div class="centerTxt">密码修改</div>
+            <div class="rightImg"><i><img src="img/arrowRigth.png" width="10px" height="18px"></i></div>
+</div>
+				<div class="content-block" style="margin-left: 6%;height: 10%;">
+					<div class="row">
+						<div class="col-95">
+							<button class="button button-big button-fill button-danger" onclick="logout()">退出登录</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--</div>-->
+	</div>
+	</body>
+	
+		<script type='text/javascript' src='js/Config.js'></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+		function verify(){
+		$.ajax({
+			type:"get",
+			url:serverPath + "/weChatService/policyServlet",
+			async:true,
+			dataType:"json",
+			data:{
+				flag:"getPolicyList",
+				param:"null",
+				status:0
+			},
+			success:function(data){
+				
+				//已通过审核的个数
+				var reviewCount = encodeURIComponent($.trim(data.reviewCount));
+				//未通过审核的个数
+				var unReviewCount = encodeURIComponent($.trim(data.unReviewCount));
+				location.href = 'orderVerify.html?reviewCount='+reviewCount+'&unReviewCount='+unReviewCount;
+			},
+			error:function(msg){
+				alert("网络不通！");
+			}
+		});
+	}
+	function gotobdlist()
+	{
+		location.href="bdlist.html";
+	}
+	
+		function logout()
+		{
+			
+		   $.ajax({
+  				url:serverPath + "/weChatService/LogionOutServlet",
+				type:"post",
+				dataType:"json",
+ beforeSend:function(){//交互时状态
+  
+  },
+				success:function(data){
+				if(data.flag)
+				{
+				    delCookie("username");
+					delCookie("password");
+			     	location.href="login.html";
+				}
+				else
+				{
+				window.alert(data.msg);
+				}
+				}
+  			});
+		
+		}
+	</script>
+</html>

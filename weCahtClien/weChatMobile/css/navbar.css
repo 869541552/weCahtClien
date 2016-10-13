@@ -1,0 +1,35 @@
+
+.navbar
+{
+	float:left; 
+	width: 100%;
+	height: 40px;
+	background-color:#ADADAD;
+	margin-left:0px;
+}
+.navbar .leftImg
+{
+	float:left;
+	margin-left:0px;
+	margin-top: 2px;
+	
+}	
+
+.leftImg img
+{
+	width: 40px;
+	height: 40px;
+}
+
+.navbar .centerTxt
+{
+	float:none;
+	/*background-color: red;*/
+	width: 80%;
+	margin-left:10%;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 16px;
+	font-weight:bold;
+	color:#3C3C3C;
+}

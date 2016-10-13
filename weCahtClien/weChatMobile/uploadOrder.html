@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+	<head>
+		
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>资料上传</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		
+		<link rel="stylesheet" href="css/sm.css"/>
+		<link rel="stylesheet" href="css/sm.min.css"/>
+		<link rel="stylesheet" href="css/pure-min.css"/>
+		<link rel="stylesheet" href="css/sm-extend.css"/>
+		<link rel="stylesheet" href="css/main.css"/>
+		<link rel="stylesheet" href="css/layer.css">
+		<link rel="stylesheet" href="css/navbar.css">
+		
+		
+		<style type="text/css">
+		
+			body {
+				margin: 0;
+				padding: 0;
+			}
+		
+			.margin90 {
+				width: 90%;
+				margin:55px auto;
+			}
+			
+			.textRight {
+				text-align: right;
+			}
+			
+			.form td {
+				font-size: 12px;
+			}
+			
+			.form tr {
+				height: 40px;  
+			}
+			
+			.radius10 {
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+			}
+			
+			.inputText {
+				border: 1px solid #bdc3c7;
+				box-shadow: 1px 1px 1px #bdc3c7;
+				transition: border .25s linear, color .25s linear, background-color .25s linear;
+				padding: 6px 10px;
+				height: 30px;
+				-moz-border-radius: 8px;
+				-webkit-border-radius: 8px;
+				border-radius: 8px;
+				outline:none;
+				background-color: #EBE9EA;
+				width: 100%;
+			}
+			
+			.reason ul li {
+				height: 40px;
+				padding: 10px 0 10px 15px;
+				line-height: 1;
+				text-align: left;
+				font-size: 18px;
+				width: 93%;
+				overflow: hidden;
+				margin-left: 10px;
+				border-bottom: 1px solid #f5f5f5;
+			}
+			.on{
+				background: #f5f5f5 none repeat scroll 0 0;
+			}
+			
+			
+			input {
+				/*
+            display: inline-block;
+            height: 40px;
+            vertical-align: middle;
+            border: none;
+            border-radius: 10px;
+            border-bottom: #DDDDDD solid 2px;
+            box-shadow: 0 1px 1px #FFFFFF,-1px -1px 1px #000000;
+            -webkit-box-shadow: 0 1px 1px #FFFFFF,-1px -1px 1px #000000;
+            color: #EEEEEE;
+            padding-left: 10px;
+			*/
+        }
+
+        input[type="button"] {
+            /*background: #cd5c5c;
+            padding: 0 40px;*/
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        input[type="button"]:hover {
+            background: palevioletred;
+        }
+
+        .mycode {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            vertical-align: middle;
+            border: solid #999999 1px;
+            border-radius: 10px;
+            box-shadow: #000000 inset 0px 0px 2px;
+        }
+		</style>
+		
+		
+	<link type="text/css" href="css/photoswipe.css" rel="stylesheet"/>
+	<link type="text/css" href="css/default-skin.css" rel="stylesheet"/>
+	<script type="text/javascript" src="js/photoswipe.min.js"></script>
+	<script type="text/javascript" src="js/photoswipe-ui-default.min.js"></script>
+	</head>
+
+	<body>
+	
+			<div class="navbar" style="top: 0px;">
+            <div class="leftImg"><i><img  onclick="history.go(-1)" src="img/go-back.png"></i></div>
+            <div class="centerTxt">资料上传</div>
+</div> 
+		<div id="mainDiv" class="margin90">
+			<div id="firstDiv">
+				<table style="width: 100%;" class="form">
+					<tr>
+						<td class="textRight" style="width: 30%;">
+							品牌：
+						</td>
+						<td style="width: 69%;position: relative;">
+							<div id="brandDiv" class="inputText selectClick1" data-parent="" data-for="pp" style="padding: 0px;width: 100%;cursor: pointer; line-height: 30px; padding-left: 5px; font-size: 16px; overflow: hidden;">请选择品牌</div>
+							<div id="pp" style="display: none; position: fixed; height: 120%; top: 0px; left: 0px; z-index: 100; width: 100%; background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;">
+								<div style="position:relative; background-color: #fff; width: 70%; height:47%; top:17%; margin: 0 auto; border-radius: 5px;" class="report" id="report">
+									<div class="reason" id="pingpai" style="border-bottom: 1px solid #d8d8d8; overflow:auto;height: 100%; border-radius: 5px;">
+										<ul style="list-style-type:none; margin: 0 auto; padding-left: 0; height: 100%;" name="parent" id="parent">
+											<!--
+                                            	作者：136993082@qq.com
+                                            	时间：2016-09-29
+                                            	描述：
+                                            	<li li-data="iphone">苹果</li>
+					                		
+				                  				<li li-data="xiaomi">小米</li>
+					                		
+				                  				<li li-data="oppo">OPPO</li>
+					                		
+				                  				<li li-data="vivo">VIVO</li>
+					                		
+				                  				<li li-data="huawei">华为</li>
+					             
+				                  				<li li-data="sanxing">三星</li>
+					                		
+				                  				<li li-data="meizu">魅族</li>
+					                		
+				                  				<li li-data="leshi">乐视</li>
+					                		
+				                  				<li li-data="jinli">金立</li>
+					                		
+				                  				<li li-data="zhongxing">中兴</li>
+					                		
+				                  				<li li-data="meitu">美图</li>
+					                		
+				                  				<li li-data="yijia">一加</li>
+                                            	
+                                            -->
+				                  				
+					                		
+										</ul>
+									</div>
+								</div>
+							</div>
+							<img class="selectClick1" data-for="pp" alt="" src="img/05.png" style="height: 30px;position: absolute;right: 0;top: 5px;cursor: pointer;width: 30px;">
+						</td>
+					</tr>
+					<tr>
+						<td class="textRight" style="width: 30%;">
+							型号：
+						</td>
+						<td style="width: 69%;position: relative;">
+							<div id="brandDiv1" class="inputText selectClick2" data-son="" data-for="xh" style="padding: 0px;width: 100%;cursor: pointer; line-height: 30px; padding-left: 5px; font-size: 16px; overflow: hidden;">请选择型号</div>
+							<div id="xh" style="display: none; position: fixed; height: 120%; top: 0px; left: 0px; z-index: 10000; width: 100%; background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;">
+								<div style="position:relative; background-color: #fff; width: 70%; height:47%; top:17%; margin: 0 auto; border-radius: 5px;" class="report" id="report">
+									<div class="reason" id="xinhao" style="border-bottom: 1px solid #d8d8d8; overflow:auto;height: 100%; border-radius: 5px;">
+										<ul style="list-style-type:none; margin: 0 auto; padding-left: 0; height: 100%;" name="son" id="son">
+										</ul>
+									</div>
+								</div>
+							</div>
+							<img class="selectClick2" data-for="xh" alt="" src="img/05.png" style="height: 30px;position: absolute;right: 0;top: 5px;cursor: pointer;width: 30px;">
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="textRight">
+							保修序列号：
+						</td>
+						<td>
+							<input type="text" class="inputText" name="num" maxlength="15" style="font-size: 16px">
+						</td>
+					</tr>
+					
+					<tr >
+						<td class="textRight">
+							所在地：
+						</td>
+						<td>
+							<select  class="inputText" id="Province" name="Province"></select>
+							
+							<select  class="inputText" id="City" name="City"></select>
+							
+        						<select  class="inputText" id="Area" name="Area"></select>
+						</td>
+					</tr>
+					
+					<tr >
+						<td class="textRight">
+							手机号码：
+						</td>
+						<td>
+							<input type="text" class="inputText" name="phone" maxlength="11" style="font-size: 16px">
+						</td>
+					</tr>
+					
+					<tr >
+						<td class="textRight">
+							用户姓名：
+						</td>
+						<td>
+							<input type="text" class="inputText" name="phone" maxlength="11" style="font-size: 16px">
+						</td>
+					</tr>
+					
+					<tr >
+						<td class="textRight">
+							身份证号：
+						</td>
+						<td>
+							<input type="text" class="inputText" name="userID" maxlength="11" style="font-size: 16px">
+						</td>
+					</tr>
+					
+	
+				
+					<tr>
+						<td class="textRight">
+							手机IMEI号：
+						</td>
+						<td>
+							<input type="text" class="inputText" name="phoneIMEI"  maxlength="15" style="font-size: 16px">
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="textRight">
+							验证码：
+						</td>
+						<td>
+							<input id="inputCode" type="text" class="inputText" name="gradient" style="width: 60px;height: 100%;"/>
+        						<span id="code" class="mycode" style=" margin-left: 5px;"></span>
+        						<span style="font-size: 10px; color: red;">*忽略大小写</span>
+        					<!--
+                	`` style="background-color: red;"
+                            	<input type="button" value="提交" id="submit" style="width: 10%; height: 100%;"/>
+                            -->	
+						</td>
+					</tr>
+					
+				</table>
+			</div>
+			<div id="secondDiv" style="height: 140px; margin-top: 20px;margin-bottom: 20px;">
+				<table style="width: 100%">
+					<tr>
+						<td width="45%" align="center">
+							<img alt="" src="img/03.png" id="img1" style="height: 100px; width: 100px;">
+						</td>
+						<td width="50%" align="center"	>
+							<div class="my-simple-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+								<figure itemscope itemtype="http://schema.org/ImageObject">
+									<a class="thumbnails" id="gallery" href="img/zlsc.jpg" itemprop="contentUrl" data-size="1024x1024">
+										<img alt="" src="img/zlsc.jpg" style="height: 100px; width: 100px;" id="zlscImg" itemprop="thumbnail" >
+									</a>
+								</figure>
+							</div>
+							<input type="hidden" name="image" id="image" >
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="thirdDiv" style="height: 100px; margin-top: 20px;margin-bottom: 20px;">
+				<table align="center">
+					<tr>
+						<td style="height: 20px; line-height: 20px;" valign="top">
+							<input type="checkbox" checked="checked" style="width: 16px; height: 16px;outline: none;">
+						</td>
+						<td style="height: 20px; line-height: 20px; text-align: center;">
+							<span style="font-size: 10px;">我已详细阅读《保修细则》,了解并接受有关责任条款及免除责任条款等约定。</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;" colspan="2">
+							<div class="radius10"
+								style="width: 85%;height: 35px; background-color: red; line-height: 35px; color: #fff; font-size: 16px; margin: 0 auto; margin-top: 20px;" id="add_activate">
+								提&nbsp;&nbsp;交
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="fourthDiv" style="text-align: center;font-size: 14px;">
+				<span style="font-size: 14px;color:#C7C2C2;">
+					深圳市**科技有限公司
+				</span><br/>
+				<span style="font-size: 13px;color:#C7C2C2;">
+					Corpright@2016-2025
+				</span><br/>
+				<span style="font-size: 13px;color:#C7C2C2;">
+					粤ICP备00000000号	
+				</span><br/>
+				<span style="font-size: 12px;color:#069DFD;">
+					客服热线：<a href="tel:000-000-0000">000-000-0000</a>
+				</span>
+			</div>
+		</div>
+	
+
+	
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <div class="pswp__container">
+            <!-- don't modify these 3 pswp__item elements, data is added later on -->
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+</div>
+	</body>
+	
+<script src="js/layer.js" type="text/javascript"></script>
+		<script src="js/plupload.full.min.js" type="text/javascript"></script>
+		<script src="js/zh_CN.js" type="text/javascript"></script>
+		<script src="js/json2.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/PCASClass.js"></script>
+
+<script type="text/javascript">
+	new PCAS("Province","City","Area")
+</script>
+
+<script src="js/js.KinerCode.js"></script>
+
+
+<script>
+var initPhotoSwipeFromDOM = function(gallerySelector) {
+	// parse slide data (url, title, size ...) from DOM elements 
+	// (children of gallerySelector)
+	var parseThumbnailElements = function(el) {
+	    var thumbElements = el.childNodes,
+	        numNodes = thumbElements.length,
+	        items = [],
+	        figureEl,
+	        childElements,
+	        linkEl,
+	        size,
+	        item;
+	    for(var i = 0; i < numNodes; i++) {
+	        figureEl = thumbElements[i]; // <figure> element
+
+	        // include only element nodes 
+	        if(figureEl.nodeType !== 1) {
+				continue;
+	        }
+
+			linkEl = figureEl.children[0]; // <a> element
+			
+	        size = linkEl.getAttribute('data-size').split('x');
+
+	        // create slide object
+	        item = {
+				src: linkEl.getAttribute('href'),
+				w: parseInt(size[0], 10),
+				h: parseInt(size[1], 10)
+	        };
+
+	        if(figureEl.children.length > 1) {
+	        	// <figcaption> content
+	          	item.title = figureEl.children[1].innerHTML; 
+	        }
+ 
+	        if(linkEl.children.length > 0) {
+	        	// <img> thumbnail element, retrieving thumbnail url
+				item.msrc = linkEl.children[0].getAttribute('src');
+	        } 
+	       
+			item.el = figureEl; // save link to element for getThumbBoundsFn
+	        items.push(item);
+	    }
+		
+	    return items;
+	};
+
+	// find nearest parent element
+	var closest = function closest(el, fn) {
+	    return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+	};
+
+	// triggers when user clicks on thumbnail
+	var onThumbnailsClick = function(e) {
+	    e = e || window.event;
+	    e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+	    var eTarget = e.target || e.srcElement;
+
+	    var clickedListItem = closest(eTarget, function(el) {
+	        return el.tagName === 'FIGURE';
+	    });
+
+	    if(!clickedListItem) {
+	        return;
+	    }
+
+
+	    // find index of clicked item
+	    var clickedGallery = clickedListItem.parentNode,
+	    	childNodes = clickedListItem.parentNode.childNodes,
+	        numChildNodes = childNodes.length,
+	        nodeIndex = 0,
+	        index;
+
+	    for (var i = 0; i < numChildNodes; i++) {
+	        if(childNodes[i].nodeType !== 1) { 
+	            continue; 
+	        }
+
+	        if(childNodes[i] === clickedListItem) {
+	            index = nodeIndex;
+	            break;
+	        }
+	        nodeIndex++;
+	    }
+
+
+
+	    if(index >= 0) {
+	        openPhotoSwipe( index, clickedGallery );
+	    }
+	    return false;
+	};
+
+	// parse picture index and gallery index from URL (#&pid=1&gid=2)
+	var photoswipeParseHash = function() {
+		var hash = window.location.hash.substring(1),
+	    params = {};
+
+	    if(hash.length < 5) {
+	        return params;
+	    }
+
+	    var vars = hash.split('&');
+	    for (var i = 0; i < vars.length; i++) {
+	        if(!vars[i]) {
+	            continue;
+	        }
+	        var pair = vars[i].split('=');  
+	        if(pair.length < 2) {
+	            continue;
+	        }           
+	        params[pair[0]] = pair[1];
+	    }
+
+	    if(params.gid) {
+	    	params.gid = parseInt(params.gid, 10);
+	    }
+
+	    if(!params.hasOwnProperty('pid')) {
+	        return params;
+	    }
+	    params.pid = parseInt(params.pid, 10);
+	    return params;
+	};
+
+	var openPhotoSwipe = function(index, galleryElement, disableAnimation) {
+	    var pswpElement = document.querySelectorAll('.pswp')[0],
+	        gallery,
+	        options,
+	        items;
+
+		items = parseThumbnailElements(galleryElement);
+
+	    // define options (if needed)
+	    options = {
+	        index: index,
+
+			// define gallery index (for URL)
+	        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+	        getThumbBoundsFn: function(index) {
+	            // See Options -> getThumbBoundsFn section of docs for more info
+	            //document.getElementById('img')
+	            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+	                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+	                rect = thumbnail.getBoundingClientRect(); 
+
+	            return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+	        },
+
+	        // history & focus options are disabled on CodePen
+           	// remove these lines in real life: 
+		   historyEnabled: false,
+		   focus: false	
+
+	    };
+
+	    if(disableAnimation) {
+	        options.showAnimationDuration = 0;
+	    }
+
+	    // Pass data to PhotoSwipe and initialize it
+	    gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+	    gallery.init();
+	};
+
+	// loop through all gallery elements and bind events
+	var galleryElements = document.querySelectorAll( gallerySelector );
+
+	for(var i = 0, l = galleryElements.length; i < l; i++) {
+		galleryElements[i].setAttribute('data-pswp-uid', i+1);
+		galleryElements[i].onclick = onThumbnailsClick;
+	}
+
+	// Parse URL and open gallery if it contains #&pid=3&gid=1
+	var hashData = photoswipeParseHash();
+	if(hashData.pid > 0 && hashData.gid > 0) {
+		openPhotoSwipe( hashData.pid - 1 ,  galleryElements[ hashData.gid - 1 ], true );
+	}
+};
+
+initPhotoSwipeFromDOM('.my-simple-gallery');
+</script>
+
+	<script type="text/javascript" src="js/zepto.js"></script>
+	<script type="text/javascript" src="js/sm.js"></script>
+	<script type="text/javascript" src="js/sm-extend.js"></script>
+	<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+	
+		$(function(){
+			
+			
+			
+			//所有输入框验证
+			function formGradient(){
+				//图
+				var image =$.trim($("input[name='image']").val());
+				
+				//序列号
+				var num = $.trim($("input[name='num']").val());
+				//品牌
+				var parent =$("#brandDiv").attr("data-parent");
+				//型号
+				var son = $("#brandDiv1").attr("data-son");
+				
+				//省
+				var province = $.trim($("input[name='Province']").text());
+			
+				//市
+				var city = $.trim($("input[name='City']").text());
+				
+				//区、县
+				var county = $.trim($("input[name='Area']").text());
+				
+				//手机号
+				var phone = $.trim($("input[name='phone']").val());
+				//手机串号
+				var phoneIMEI = $.trim($("input[name='phoneIMEI']").val());
+				
+				//验证码
+//				var code = $.trim($("input[name='code']").val());
+				//验证码
+				var code = $.trim($("input[name='gradient']").val());
+				
+				//身份证号
+				var userID = $.trim($("input[name='userID']").val());
+			
+				var username = $.trim($("input[name='username']").val());				
+				
+				var flag = validate(num,"请输入序列号!", phone,"请输入手机号!", image,"请上传图片!",
+									phoneIMEI,"请输入手机IMEI!",username,"姓名",parent,"请选择品牌",
+									son,"请选择型号",code,"请输入验证码或者验证码错误",userID,"请输入身份证号",
+									province,"请输入省份",city,"请输入城市名",county,"请输入县、区");
+				if(flag){
+					$.ajax({
+						//提交的路径
+						url:"/wx_activit/add",
+						type:"post",
+						data:{	
+								image:image,
+								phone:phone,
+								phoneIMEI:phoneIMEI,
+								num:num,
+								code:code,//验证码
+								username:username,
+								parent:parent,
+								son:son,
+								//gradient:gradient,//验证码
+								userID:userID,
+								province:province,
+								city:city,
+								county:county
+								
+								
+						},
+						dataType:"json",						
+						success:function(data){
+							if(data.flag){							
+								 $.alert(data.msg,function(){
+								 	//提交成功跳到的界面
+									 window.location.href="#";								
+								 });
+							}else{
+								 $.alert(data.msg);
+							}
+						}						
+					});
+				}
+				return false;
+			};
+			
+			function validate(date1,msg1,date2,msg2,date3,msg3,date4,msg4,date5,msg5,date6,msg6,date7,msg7,date8,msg8,date9,msg9,date10,msg10,date11,msg11,date12,msg12){			
+				
+				if(date1.length != 15){
+					$.alert('序列号有误');
+					return false;
+				}
+				if(date2.length != 11){
+					$.alert('手机号有误');
+					return false;
+				}
+				if(date4.length != 15){
+					$.alert('手机IMEI号有误');
+					return false;
+				}	
+				if(date1 == ''){
+					$.alert(msg1);
+					return false;
+				}else if(date2==''){
+					$.alert(msg2);
+					return false;
+				}
+				else if(date3==''){
+					$.alert(msg3);
+					return false;
+				}
+				else if(date4==''){
+					$.alert(msg4);
+					return false;
+				}
+				else if(date5==''){
+					$.alert(msg5);
+					return false;
+				}
+				else if(date6==''){
+					 $.alert(msg6);
+					return false;
+				}
+				else if(date7==''){
+					 $.alert(msg7);
+					return false;
+				}//data8验证码判断
+				
+				
+				else if(date9.length != 18){
+					//$.alert(msg9);
+					return false;
+				}
+				else if(date10 ==='--请选择省份--'){
+					 //$.alert(msg10);
+					return false;
+				}
+				else if(date11 ==='--请选择城市--'){
+					 //$.alert(msg11);
+					return false;
+				}
+				else if(date12 ==='--请选择地区--'){
+					$.alert(msg12);
+					return false;
+				}
+				
+				return true;
+			}
+			
+			
+			/*随机生成验证码*/
+		var inp = document.getElementById('inputCode');
+    var code = document.getElementById('code');
+    var submitBtn = document.getElementById('add_activate');
+
+    var c = ["+", "-", "*", "/"];
+    var arr = [];
+
+    for (var i = 0; i < 1000; i++) {
+
+        var num = parseInt(Math.random() * 100 + 1);
+        var num2 = parseInt(Math.random() * 100 + 1);
+        var num3 = parseInt(Math.random() * 4);
+
+        if (c[num3] === '/') {
+            var x = num % num2;
+            if (x != 0) {
+                num -= x;
+
+                if(num==0){
+                    var temp = num;
+                    num2 = num;
+                    num = temp;
+                }
+
+            }
+        }
+
+        if(num==0&&num==0){
+            continue;
+        }
+
+        var str = num + c[num3] + num2;
+
+        arr.push(str);
+
+    }
+	
+    //======================插件引用主体
+    var c = new KinerCode({
+        len: 4,//需要产生的验证码长度
+//        chars: ["1+2","3+15","6*8","8/4","22-15"],//问题模式:指定产生验证码的词典，若不给或数组长度为0则试用默认字典
+        chars: [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 0,
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+        ],//经典模式:指定产生验证码的词典，若不给或数组长度为0则试用默认字典
+        question: false,//若给定词典为算数题，则此项必须选择true,程序将自动计算出结果进行校验【若选择此项，则可不配置len属性】,若选择经典模式，必须选择false
+        copy: false,//是否允许复制产生的验证码
+        bgColor: "",//背景颜色[与背景图任选其一设置]
+        bgImg: "img/bg.jpg",//若选择背景图片，则背景颜色失效
+        randomBg: false,//若选true则采用随机背景颜色，此时设置的bgImg和bgColor将失效
+        inputArea: inp,//输入验证码的input对象绑定【 HTMLInputElement 】
+        codeArea: code,//验证码放置的区域【HTMLDivElement 】
+        click2refresh: true,//是否点击验证码刷新验证码
+        false2refresh: true,//在填错验证码后是否刷新验证码
+        validateObj: submitBtn,//触发验证的对象，若不指定则默认为已绑定的输入框inputArea
+        validateEven: "click",//触发验证的方法名，如click，blur等
+        validateFn: function (result, code) {//验证回调函数
+            if (result) {
+            		formGradient();
+                //alert('验证成功');
+            } else {
+            		alert('验证码错误');
+            }
+        }
+    });
+	/***************随机生成验证码***************/
+			
+//		});
+		
+		
+		
+		
+
+		
+		/***************** 校验手机号码书写*********************/ 
+		function check(date1,msg1){
+			if(date1 == ''){
+				$.alert(msg1);
+				return false;
+			}
+			var s=isphone2(date1);
+			if(s){			
+				return true;
+			}
+			return false;
+		}
+				
+		function isphone2(inputString){
+	         var partten = /^1[3,5,7,8]\d{9}$/;
+	         var fl=false;
+	         if(partten.test(inputString))
+	         {
+	              return true;
+	         }
+	         else
+	         {
+	             return false;
+	             $.alert('不是手机号码');
+	         }
+	    }
+		/**************************************/
+		
+		
+//		$(function (){
+	
+	$.ajax({
+		url:'http://192.168.12.244:8080/weChatService/CopyOfBaseDataServlet',
+		type:'get',
+		dataType:'json',
+		data:{
+			parentId:1	
+		},
+		success:function (data){
+			var str = '';
+			for (var i=0;i<data.length;i++) {
+				
+				str += '<li li-data="'+data[i].id+'">'+ data[i].name + '</li>'; 
+//				alert(data[i].name+ data[i].id);
+//				
+			} 
+//			alert(str);
+			$('#parent').html(str);
+			$('.selectClick1').click(function (){
+				var selectId = $(this).attr('data-for');
+				$("#"+selectId).css({
+					'display':'block'
+				});
+				
+			});
+			
+			$(".selectClick2").click(function(){
+				var value = $("#brandDiv").text();
+				var selectId = $(this).attr('data-for');
+				if(value=='请选择品牌'){
+					$.alert(value);
+				}else{
+					$("#"+selectId).css({
+						'display':'block'
+					});
+				}
+			});
+			$("#pingpai ul li").eq(0).addClass("on");
+			$("#pingpai ul li").each(function(){
+				$(this).click(function(){
+					$(this).addClass("on").siblings().removeClass("on");
+					var value = $(this).text();
+					//alert(value);
+					setTimeout(function(){
+						$("#pp").css({
+							'display':'none'
+						});
+					},100);
+					clearTimeout();
+					$("#brandDiv").text(value);
+				});
+			});
+			$("#xinhao ul li").eq(0).addClass("on");
+			$("#xinhao ul li").each(function(){
+				$(this).click(function(){
+					$(this).addClass("on").siblings().removeClass("on");
+					var value = $(this).text();
+					setTimeout(function(){
+						$("#xh").css({
+							'display':'none'
+						});
+					},100);
+					$("#brandDiv1").text(value);
+				});
+			});
+			
+			var ul = $("#parent li");
+			ul.click(function(){ 
+				
+			    var ss = parseInt($(this).attr("li-data"));
+			  
+			    $("#brandDiv").attr("data-parent",ss);
+			    $.ajax({
+					url:"http://192.168.12.244:8080/weChatService/CopyOfBaseDataServlet",
+					type:"get",
+					dataType:"json",	
+					data: {
+						parentId:ss	
+					},
+					success:function(data){
+						var str = '';
+						for(var i=0;i<data.length;i++){
+							str+='<li class="son" li-data-son="'+data[i].id+'">'+data[i].name+'</li>';
+						}
+						$("#son").html(str);
+   							var sonli = $(this).html();
+							var sondata = $(this).attr("li-data-son");
+							$("#brandDiv1").attr("data-son",sondata);
+							$("#brandDiv1").html(sonli);
+							$(this).addClass("on").siblings().removeClass("on");
+							var value = $(this).text();
+							setTimeout(function(){
+								$("#xh").css({
+									'display':'none'
+								});
+							},500);
+							clearTimeout();
+							$("#brandDiv1").text(value);
+						});
+					}						
+				});
+			});
+			
+			
+			
+			
+		}
+		
+	});
+	
+//	      $(".selectClick1").click(function(){
+//				var selectId = $(this).attr('data-for');
+//				//alert("#"+selectId);
+//				
+//				$("#"+selectId).css({
+//					'display':'block'
+//				});
+//			});
+			
+	
+			
+			var url=location.href.split('#')[0];
+//			$.ajax({
+//				url:"share",
+//				type:"get",
+//				dataType:"json",
+//				data:{"url":encodeURIComponent(url)},
+//				success:function(data){
+//					wx.config({
+//					    debug: false,
+//					    appId: data.appId,
+//					    timestamp: data.timestamp,
+//					    nonceStr: data.nonceStr,
+//					    signature: data.signature,
+//					    jsApiList: ['chooseImage','previewImage','uploadImage','downloadImage']
+//					});
+					function uploadImage(callback1,callback2){
+						wx.chooseImage({							
+							count: 1,
+							sizeType:['original'],
+							sourceType:['camera'],
+							success: function (res) {
+								wx.uploadImage({
+								    localId: res.localIds[0],
+								    isShowProgressTips: 1,
+								    success: function (result) {
+								    	callback2(result);
+								    }
+								});
+								callback1(res.localIds);
+							}
+					    });
+					}
+					
+					//alert(wx);
+					
+//					wx.ready(function(){
+//						alert(222222);
+//						document.querySelector('#img').onclick =function(){	
+//							alert(222222);
+//							uploadImage(function(res){								
+//								$('#img').attr("src",res);								
+//							},function(result){
+//								$("#image").val(result.serverId);
+//							});
+//						}
+//					});
+					
+					$(function (){
+						alert($('#img1'));
+					
+						$('#img1').click =function(){	
+							alert(222222);
+							uploadImage(function(res){								
+								$('#img1').attr("src",res);								
+							},function(result){
+								$("#image").val(result.serverId);
+							});
+						}
+						
+					});	
+			
+		});
+		
+		
+		
+		
+</script>
+
+</html>
+

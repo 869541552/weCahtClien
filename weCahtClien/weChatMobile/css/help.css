@@ -1,0 +1,28 @@
+
+/*服务范围P标签*/
+
+.serviceRangeP
+{
+   max-width: 100%; 
+   min-height: 1em; 
+   color: rgb(62, 62, 62);
+   font-family: 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+   line-height: 20.2727px;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    background-color: rgb(255, 255, 255);
+}
+
+/*服务范围Span标签*/
+.serviceRangeSpan
+{
+   max-width: 100%;
+   font-family: 微软雅黑, sans-serif;
+   box-sizing: border-box !important;
+   word-wrap: break-word !important;
+}
+.serviceRangeStrong{
+	max-width: 100%; 
+	box-sizing: border-box !important; 
+	word-wrap: break-word !important;
+}

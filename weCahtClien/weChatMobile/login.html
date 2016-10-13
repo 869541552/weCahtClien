@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <title>登陆</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <link href="css/sm.css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link href="css/sm-extend.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/navbar.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="page-group">
+      <div class="page page-current" id="page-layout" style="background:url(img/bg4.png);">
+        <div class="content native-scroll">
+        	  	<div class="navbar">
+            <div class="leftImg"><i><img  onclick="javascript:window.location='index.html'" src="img/go-back.png"></i></div>
+            <div class="centerTxt">后台登陆</div>
+</div> 
+          <div class="list-block" align="center" style="margin-top: 13%">
+            <img src="img/head.png" width="80px;" height="80px;" style="border-radius:40px ;"></div>
+          <div class="list-block" align="center" style="width: 82%; margin-left:10%;height:3%;margin-top: 8%">
+            <div class="item-input radius" style="background-color: white;">
+              <input type="text" placeholder="用户名" name="username" class="radius" style="height: 1.6rem;"></div>
+          </div>
+          <div class="list-block" align="center" style="width: 82%; margin-left:10%;height:3%">
+            <div class="item-input radius" style="background-color: white;">
+              <input type="password" class="" placeholder="密码" name="password" class="radius" style="height: 1.6rem;"></div>
+          </div>
+          <div class="content-block" style="margin-left: 6%;height: 10%">
+            <div class="row">
+              <div class="col-95">
+                <a class="button button-big button-fill button-danger" id="submit">登陆</a></div>
+            </div>
+          </div>
+        </div>
+        <div id="wapper">
+          <div id="footer">
+            <table align="center">
+              <tr align="center">
+                <td style="font-size: 14px;color:#C7C2C2;">深圳市**科技有限公司</td></tr>
+              <tr align="center">
+                <td style="font-size: 13px;color:#C7C2C2;">Copyright@2016-2025</td></tr>
+              <tr align="center">
+                <td style="font-size: 13px;color:#C7C2C2;">粤ICP备00000000号</td></tr>
+              <tr align="center">
+                <td style="font-size: 12px;color:#069DFD;">客服热线：
+                  <a href="tel:400-000-0000">400-000-0000</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script type="text/javascript" src="js/Config.js"></script>
+  <script type="text/javascript">$("#submit").click(function() {
+      //用户名
+      var username = $.trim($("input[name='username']").val());
+      //内容
+      var password = $.trim($("input[name='password']").val());
+      $.alert(username);
+      userLogin(username, password);
+    });
+    function userLogin(username, password) {
+      //			$.alert(username);
+      $.ajax({
+        url: serverPath + "/weChatService/LoginServlet",
+        type: "post",
+        data: {
+          username: username,
+          password: password
+        },
+        dataType: "json",
+        success: function(data) {
+          $.hidePreloader();
+          if (data.flag) {
+            setCookie("username", username);
+            setCookie("password", password);
+            location.href = "userCenter.html";
+          } else {
+            $.alert(data.msg);
+          }
+        }
+      });
+    }</script>
+
+</html>

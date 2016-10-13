@@ -1,0 +1,50 @@
+<style>
+	.list-block .item-content{
+		box-sizing: border-box;
+	    padding-left: 0.75rem;
+	    min-height: 1.7rem;
+	    height:30px;
+	    display: -webkit-box;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-box-pack: justify;
+	    -webkit-justify-content: space-between;
+	    justify-content: space-between;
+	    -webkit-box-align: center;
+	    -webkit-align-items: center;
+	    align-items: center;
+	
+	}
+	.button.button-big{
+		font-size: 0.85rem;
+    	height: 1.8rem;
+    	line-height: 2.3rem;
+	}
+	
+	.button.button-fill.button-big {
+    	line-height: 2.2;
+	}
+	
+	#wapper{
+		margin:0 auto;
+	    position: fixed;   /*重要！保证footer是相对于wapper位置绝对*/  
+	    height: auto;          /* 保证页面能撑开浏览器高度时显示正常*/  
+	    min-height: 100%  /* IE6不支持，IE6要单独配置*/  
+	}  
+	#footer{  
+		width:100%;
+		position: fixed;  bottom:0; /* 关键 */  
+		margin:0 auto; /* IE下一定要记得 */ 
+		height: 80px;         /* footer的高度一定要是固定值*/  
+	}  
+	.radius {
+	  -moz-border-radius: 0.25rem; /* Firefox */
+	  -webkit-border-radius: 0.25rem; /* Safari 和 Chrome */
+	  border-radius: 0.25rem; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+	  -moz-box-shadow: 0.25rem; /* Firefox */
+	  -webkit-box-shadow: 0.25rem; /* Safari 和 Chrome */
+	  box-shadow: 0.25rem; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+	  behavior: url(ie-css3.htc); /* 通知IE浏览器调用脚本作用于'box'类    */
+	 
+	}
+</style>
